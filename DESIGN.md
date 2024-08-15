@@ -41,3 +41,5 @@ This application is designed to analyse media files (videos or images), detect o
 ## Conclusion
 
 This design ensures that the application is modular, with clear separation of concerns, robust error handling, and the ability to fetch and display travel-related data based on media analysis.
+
+Deployment of such an app would definitely be covertly, via a number of microservices BECAUSE the psychological abuse via social engineering would be rather disturbing. You probably wouldn't want to own the marketing app.
