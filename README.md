@@ -27,5 +27,4 @@ To analyse a media file, run the `main` function with the path to your media fil
 3. Fetch flight and hotel prices for the detected location.
 4. Display the results in the console and provide a dynamic button to toggle hotel prices on a webpage.
 
-```javascript 
-main('path/to/your/video/or/image/file');
+
