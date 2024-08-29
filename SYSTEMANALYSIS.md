@@ -29,31 +29,7 @@ The ERD conceptualises how different entities (classes) are related to each othe
 | `DetectedEntity`         | `description`, `entityType`                 | Part of `AnnotationResult`, Compared by `LocationComparer`   | Represents a detected entity (object, label, or text) within the media file.                                      |
 | `Location`               | `name`, `keywords`, `score`                 | Associated with `DetectedEntity`                             | Represents a geographical location, with associated keywords used for matching detected entities.                 |
 | `FlightPrice`            | `price`, `departureDate`, `returnDate`      | Fetched by `FlightPriceFetcher`                              | Contains information about flight prices for a specific location and date range.                                  |
-| `HotelPrice`             | `topTierPrice`, `mediumTierPrice`, `budgetTierPrice` | Fetched by `HotelPriceFetcher`                               | Contains information about hotel prices in different tiers for a specific location.                               |
-
-### ERD Relationships
-- **MediaFile** 1-->* **AnnotationResult**: A media file is analysed to produce annotation results.
-- **AnnotationResult** 1-->* **DetectedEntity**: An annotation result contains multiple detected entities.
-- **Location** 1-->* **DetectedEntity**: Each detected entity can be associated with multiple locations based on matching keywords.
-- **FlightPriceFetcher** *-->* **Location**: Fetches flight prices for a given location.
-- **HotelPriceFetcher** *-->* **Location**: Fetches hotel prices for a given location.
-
-## 3. Sequence Diagram
-
-The sequence diagram shows the flow of interaction between different components (classes) of the system, particularly focusing on data parsing and location detection.
-
-| **Step** | **Object/Entity**       | **Method/Action**                                          | **Description**                                                                                             |
-|----------|-------------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| 1        | `MainApp`                | `main(filePath)`                                           | The main application starts and receives the file path of the media to analyse.                             |
-| 2        | `MainApp -> MediaAnalyser`| `analyseMedia(filePath)`                                   | The main app calls the media analyser to process the file.                                                  |
-| 3        | `MediaAnalyser -> GoogleVideoIntelligenceAPI`| `annotate(filePath)`                                       | The media analyser invokes the Google Video Intelligence API to annotate the media.                         |
-| 4        | `GoogleVideoIntelligenceAPI -> GoogleResponseParser` | `parseAnnotations(annotations)`                            | The API returns annotations, which are then parsed by the response parser.                                  |
-| 5        | `GoogleResponseParser -> MediaAnalyser` | `return parsed data (objects, labels, texts)`               | The parsed data is returned to the media analyser.                                                          |
-| 6        | `MainApp -> LocationComparer`| `compareAndScoreLocations(parsed entities)`               | The main app calls the location comparer to identify the most likely location based on parsed entities.      |
-| 7        | `LocationComparer -> MainApp`| `return location and score`                                | The location comparer returns the best-matching location and its score.                                     |
-| 8        | `MainApp -> FlightPriceFetcher` | `fetchFlightPrices(location)`                             | The main app fetches flight prices for the identified location.                                             |
-| 9        | `MainApp -> HotelPriceFetcher` | `fetchHotelPrices(location)`                              | The main app fetches hotel prices for the identified location.                                              |
-| 10       | `MainApp`                | `displayHotelPrices(hotelPrices)`                          | The main app displays the fetched hotel prices and creates a toggle button on the webpage.                  |
+| `HotelPrice`             | `topTierPrice`, `mediumTierPrice`, `budgetTierPrice` | Fetched by `HotelPriceFetcher`                               | Contains information about hotel prices in different tiers for a specific location.                               
 
 ## Conclusion
 
