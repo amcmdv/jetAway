@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document provides an abstract, conceptual view of the Media Location Analyser and Travel Price Fetcher system using less commonly utilised system analysis techniques, including Data Flow Diagrams (DFDs), State Transition Diagrams (STDs), and Jackson Structured Programming (JSP). These diagrams aim to provide a clear understanding of the data processing flow, state changes, and overall structure of the system.
+This document provides an abstract, conceptual view of the Media Location Analyser and Travel Price Fetcher system using less commonly utilised system analysis techniques, including Data Flow Diagrams (DFDs). 
+
+This diagram aims to provide a clear understanding of the data processing flow, state changes, and overall structure of the system.
 
 ## 1. Data Flow Diagram (DFD)
 
@@ -59,37 +61,6 @@ The State Transition Diagram outlines the various states the system can be in an
 | **Fetching Travel Prices**    | Travel prices fetched                              | **Displaying Results**                   | Once the location is determined, the system fetches travel-related data.                             |
 | **Displaying Results**        | User views results or toggles hotel prices         | **Idle**                                 | Final state where the system displays the results and may return to idle once interaction ends.      |
 
-## 3. Jackson Structured Programming (JSP) Diagram
-
-The JSP Diagram represents the structured process flow of the system, with a focus on the hierarchical sequence of operations.
-
-### High-Level JSP Structure
-
-+– Main Process –––––––––––––––––––+
-|   +– Analyse Media ––––––––––––––––+|
-|   |   +– Send Media to Google API ––––––––+|
-|   |   +– Receive Annotated Data ——————+|
-|   +———————————————––+
-|
-|   +– Parse Annotated Data ———————––+
-|   |   +– Extract Objects, Labels, and Texts ——+|
-|   +———————————————––+
-|
-|   +– Score Location —————————––+
-|   |   +– Compare Parsed Entities with Locations –+|
-|   |   +– Determine Best Match ––––––––––+|
-|   +———————————————––+
-|
-|   +– Fetch Travel Prices –––––––––––––+
-|   |   +– Fetch Flight Prices ———————+|
-|   |   +– Fetch Hotel Prices –––––––––––+|
-|   +———————————————––+
-|
-|   +– Display Results ——————————+
-|   |   +– Output Location and Pricing Data ––––+|
-|   |   +– Create Toggle Button ––––––––––+|
-|   +———————————————––+
-+——————————————————+
 
 ### Process Flow Description
 1. **Analyse Media**: The main process begins by analysing the media file using Google Video Intelligence API.
@@ -105,8 +76,3 @@ This document has abstractly conceptualised the Media Location Analyser and Trav
 Explanation:
 
       1.    Data Flow Diagrams (DFD): The DFD offers a clear representation of how data moves through the system at various levels, showing both the high-level context and detailed internal processes.
-      2.    State Transition Diagrams (STD): The STD captures the states the system moves through during its lifecycle, helping to understand how the system reacts to various events and user interactions.
-      3.    Jackson Structured Programming (JSP): JSP diagrams provide a structured view of the system’s process flow, focusing on the hierarchical and sequential execution of operations.
-
-These techniques, though less commonly used today, are still highly effective in providing a clear and precise understanding of the system’s design and operation. This approach not only outlines the architecture but also gives insight into the process and state transitions that occur within the system.
-
