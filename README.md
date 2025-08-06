@@ -1,5 +1,5 @@
 # jetAway
-make-it-cleaner-circle-enhancement
+make-it-cleaner
 
 # Media Location Analyser and Travel Price Fetcher
 
